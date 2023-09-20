@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- Fonte para as letras do navbar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@500&display=swap" rel="stylesheet">
+
+    <title>Consultório Odontológico Dr. Phillip Sherman</title>
+</head>
+
+<body onload="getList()">
+     <!-- Cabeçalho de informações do sistema -->
+    <header>
+        <nav class="navbar navbar-light" style="background-color: #5cb6bc;">
+            <div class="container" >
+                <div class="row g-2">
+                    <div class="col-md-2">
+                        <img src="meu_app_front\img\dente.png" alt="" width="45" height="45" id="dente">
+                    </div>
+                    <div class="col-md-7" id="GoogleFontNomeConsultorio">
+                        <h4>Consultório Odontológico Dr. Phillip Sherman</h4>
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-12" id="Sagc">
+                        <br><br>
+                        <h5>Sistema de Agendamento e Gerenciamento de Consultas (SAGC)</h5>
+                    </div>
+                </div> 
+            </div>          
+        </nav>
+
+    </header>
+
+    <br>
+        <div class="container">
+            <div class="row g-2">
+                <div class="col-12 BodyText">
+                    <p>Preencha os campos a seguir com os dados fornecidos pelo paciente:</p>
+                </div>
+            </div>
+            <br>
+            <form>
+                <div class="row g-2">
+                    <div class="form-floating mb-4 col-md-4">
+                        <input type="text" class="form-control" id="newNome" placeholder="nome">
+                        <label for="floatingInput">Nome</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-4">
+                        <input type="text" class="form-control" id="newSobrenome" placeholder="name@example.com">
+                        <label for="floatingInput">Sobrenome</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-2">
+                        <input type="text" class="form-control" autocomplete=off id="newCPF" placeholder="name@example.com" maxlength="14">
+                        <label for="floatingInput">CPF</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-2">
+                        <input type="text" class="form-control" id="newDataNascimento" placeholder="name@example.com"  maxlength="8" onfocus="(this.type='date')">
+                        <label for="floatingInput">Nascimento</label>
+                        <!-- <div class="form-floating mb-3 col-md-2">
+                            <input type="text" class="form-control" id="newDataNascimento" placeholder="name@example.com" onfocus="(this.type='date')">
+                            <label for="floatingInput">Nascimento</label>
+                        </div> -->
+                    </div>
+                </div>
+                <br>
+                <div class="row g-2">
+                    <div class="form-floating mb-3 col-md-2">
+                        <input type="text" class="form-control" id="newDataConsulta" placeholder="name@example.com" onfocus="(this.type='date')">
+                        <label for="floatingInput">Data</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-2">
+                        <input type="text" class="form-control" id="newHorarioConsulta" placeholder="name@example.com" onfocus="(this.type='time')">
+                        <label for="floatingInput">Horário</label>
+                    </div>
+                    <div class="col-md-3 form-floating">
+                        <select class="form-select form-select-sm" aria-label="Default select example" id="newPlanoSaude">
+                            <option selected value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                        </select>
+                        <label for="floatingSelect">O convênio do paciente é aceito?</label>
+                    </div>
+                </div>
+                <br>
+                <div class="row g-4">
+                    <div class="d-grid gap-2">
+                        <button onclick="newItem()" class="btn btn-outline-info" type="button"><b>Agendar Consulta</b></button>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+            </form>
+        </div>
+
+        <div class="container table-responsive text-nowrap">
+            <table class="table table-primary .table-sm caption-top table-hover table-striped table-bordered border border-primary-subtle" id="myTable" id="myTableStyle">
+                <caption><div class="col-12 BodyText">Consultas Agendadas</div></caption>
+                    <div class="row g-0">
+                        <tr>
+                            <th><div class="text-left">Nome</div></th>
+                            <th><div class="text-left">Sobrenome</div></th>
+                            <th><div class="text-left">CPF</div></th>
+                            <th><div class="text-left">Nascimento</div></th>
+                            <th><div class="text-left">Data</div></th>
+                            <th><div class="text-left">Horário</div></th>
+                            <th><div class="text-left">Convênio</div></th>
+                            <th><div class="text-left">Desmarcar</div></th>
+                        </tr>
+                    </div>
+            </table>
+        </div>
+
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
