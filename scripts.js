@@ -42,11 +42,7 @@ const getList = async () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.consultaAgendada == true) {
-          alert('Consulta agendada.')
-        }else{
-          alert('Data e horário não disponíveis para o agendamento.')
-        }
+        alert(data.message);
     })
       .catch((error) => {
         console.error('Error:', error);
@@ -176,29 +172,6 @@ const getList = async () => {
 
   /*
     --------------------------------------------------------------------------------------
-    Função para deletar um paciente da lista do servidor via requisição DELETE
-    --------------------------------------------------------------------------------------
-  */
-    // const deletaConsulta = (horarioDeletado, dataDeletada) => {
-    //   const formData = new FormData();
-    //   formData.delete(horarioDeletado);
-    //   formData.delete(dataDeletada);
-
-    //   // console.log(horarioDeletado, dataDeletada)
-    //   // let url = 'http://127.0.0.1:7000/desmarcar_consulta?horario=' + horarioDeletado + ';data=' + dataDeletada;
-    //   let url = 'http://127.0.0.1:7000/desmarcar_consulta';
-    //   fetch(url, {
-    //     method: 'delete',
-    //     body: formData
-    //   })
-    //     .then((response) => response.json())
-    //     .catch((error) => {
-    //       console.error('Error:', error);
-    //     });
-    // }
-
-  /*
-    --------------------------------------------------------------------------------------
     Função para adicionar
     --------------------------------------------------------------------------------------
   */
@@ -241,20 +214,6 @@ const getList = async () => {
     return db_PS;
   }
 
- /*
-    --------------------------------------------------------------------------------------
-    Função para pôr a data no formato dd/mm/yyyy
-    --------------------------------------------------------------------------------------
-  */
-
-  // function formatarData(dateStr) {
-  //   date = Date.parse(dateStr);
-  //   return [
-  //     padTo2Digits(date.getDate()),
-  //     padTo2Digits(date.getMonth() + 1),
-  //     date.getFullYear(),
-  //   ].join('/');
-  // }
   
   /*
     --------------------------------------------------------------------------------------
@@ -290,9 +249,5 @@ const getList = async () => {
     removeElement()
   }
 
-/*
-    --------------------------------------------------------------------------------------
-    Função para traduzir pacientePlanoSaude (que no banco consta como "true" ou "false") para o português
-    --------------------------------------------------------------------------------------
-  */
+
 
