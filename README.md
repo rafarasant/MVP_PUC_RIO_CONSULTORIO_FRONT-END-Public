@@ -13,3 +13,13 @@ Este projeto foi desenvolvido para o MVP da Sprint 1 da **Pós Gradução de Eng
 ## Como executar
 
 Faça o download do projeto e abra o arquivo index.html no seu browser.
+
+---
+## Interface da aplicação
+
+A aplicação foi desenvolvida para funcionar em uma única página *web*.
+
+---
+## Funcionalidades
+
+Nesta aplicação, o usuário do sistema pode agendar e excluir consultas, assim como visualizá-las numa única listagem.
